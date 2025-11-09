@@ -1,34 +1,15 @@
 import os
-from flask import Flask, render_template, request, jsonify
-from weather_backend import get_weather_data, get_weather_description
+from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    try:
-        return render_template('index.html')
-    except Exception as e:
-        return f"Template error: {str(e)}"
+def hello():
+    return "🚀 Weather App is WORKING! If you see this, deployment is successful!"
 
-@app.route('/weather', methods=['POST'])
-def get_weather():
-    try:
-        city = request.form.get('city', '').strip()
-        
-        if not city:
-            return jsonify({'error': 'Please enter a city name'})
-        
-        weather_data = get_weather_data(city)
-        
-        if weather_data:
-            weather_data['description'] = get_weather_description(weather_data['conditions'])
-            weather_data['emoji'] = weather_data['description'].split(' ')[0]
-            return jsonify(weather_data)
-        else:
-            return jsonify({'error': f'City "{city}" not found'})
-    except Exception as e:
-        return jsonify({'error': f'Server error: {str(e)}'})
+@app.route('/test')
+def test():
+    return "✅ Test route is also working!"
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
