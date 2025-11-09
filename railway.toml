@@ -1,6 +1,6 @@
 [deploy]
 buildCommand = "pip install -r requirements.txt"
-startCommand = "gunicorn app:app"
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT"
 
 [service]
 port = 5000
