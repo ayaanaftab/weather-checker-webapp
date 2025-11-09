@@ -1,6 +1,6 @@
-# app.py
 from flask import Flask, render_template, request, jsonify
 from weather_backend import get_weather_data, get_weather_description
+import os
 
 app = Flask(__name__)
 
@@ -18,12 +18,13 @@ def get_weather():
     weather_data = get_weather_data(city)
     
     if weather_data:
-        # Add emoji and description
         weather_data['description'] = get_weather_description(weather_data['conditions'])
-        weather_data['emoji'] = weather_data['description'].split(' ')[0]  # Get the emoji
+        weather_data['emoji'] = weather_data['description'].split(' ')[0]
         return jsonify(weather_data)
     else:
         return jsonify({'error': f'City "{city}" not found. Please try another name.'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Get the port from environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
