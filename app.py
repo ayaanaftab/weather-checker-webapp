@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "🚀 Weather App is WORKING! If you see this, deployment is successful!"
+    return "🚀 SUCCESS! Flask is running on Railway!"
 
-@app.route('/test')
-def test():
-    return "✅ Test route is also working!"
+@app.route('/health')
+def health():
+    return "✅ Health check passed!"
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
