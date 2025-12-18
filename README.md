@@ -15,8 +15,8 @@ A beautiful weather web application built with Python Flask that displays real-t
 - **API**: Open-Meteo Weather API
 - **Deployment**: Render
 
-## Live Demo
-[Add your Render link here after deployment]
+## Live Demo (MOSTLY OFFLINE SINCE SELF_HOSTED)
+https://hippiatric-ethical-zenobia.ngrok-free.dev/
 
 ## How to Run Locally
 1. Clone this repository
