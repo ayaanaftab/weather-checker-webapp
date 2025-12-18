@@ -1,4 +1,4 @@
-# Weather Portfolio App
+# Weather Checker WebApp
 
 A beautiful weather web application built with Python Flask that displays real-time weather data for any city worldwide.
 
